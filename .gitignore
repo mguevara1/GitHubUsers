@@ -1,0 +1,7 @@
+# Ignore configuration files
+config.json
+
+# Ignore build artifacts and directories
+/build/
+/dist/
+*.log

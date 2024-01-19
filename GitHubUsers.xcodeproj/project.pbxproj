@@ -20,6 +20,8 @@
 		D10256EB2B58892D00300EED /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10256EA2B58892D00300EED /* GitHubClient.swift */; };
 		D10256ED2B58931900300EED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10256EC2B58931900300EED /* User.swift */; };
 		D10256EF2B58AE2B00300EED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10256EE2B58AE2B00300EED /* ViewModel.swift */; };
+		D1E017A82B5AEED300380DCB /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */; };
+		D1E017A92B5B0B0C00380DCB /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = D1E017A62B5AEEA200380DCB /* config.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		D10256EA2B58892D00300EED /* GitHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
 		D10256EC2B58931900300EED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D10256EE2B58AE2B00300EED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D1E017A62B5AEEA200380DCB /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				D10256B72B5887E400300EED /* AppDelegate.swift */,
 				D10256B92B5887E400300EED /* SceneDelegate.swift */,
 				D10256BB2B5887E400300EED /* ViewController.swift */,
+				D1E017A62B5AEEA200380DCB /* config.json */,
+				D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */,
 				D10256EE2B58AE2B00300EED /* ViewModel.swift */,
 				D10256EA2B58892D00300EED /* GitHubClient.swift */,
 				D10256EC2B58931900300EED /* User.swift */,
@@ -244,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10256C72B5887E400300EED /* LaunchScreen.storyboard in Resources */,
+				D1E017A92B5B0B0C00380DCB /* config.json in Resources */,
 				D10256C42B5887E400300EED /* Assets.xcassets in Resources */,
 				D10256BF2B5887E400300EED /* Main.storyboard in Resources */,
 			);
@@ -270,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E017A82B5AEED300380DCB /* ConfigurationManager.swift in Sources */,
 				D10256EB2B58892D00300EED /* GitHubClient.swift in Sources */,
 				D10256BC2B5887E400300EED /* ViewController.swift in Sources */,
 				D10256ED2B58931900300EED /* User.swift in Sources */,

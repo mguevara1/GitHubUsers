@@ -9,7 +9,7 @@ import Foundation
 
 class ViewModel {
     private let gitHubClient: GitHubClient
-    @Published var users: [User] = []
+    @Published var users: [User]?
     @Published var selectedUser: User?
 
     init(gitHubClient: GitHubClient) {

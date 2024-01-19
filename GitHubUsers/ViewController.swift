@@ -12,40 +12,34 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var cancellables: Set<AnyCancellable> = []
-    private let viewModel: ViewModel
+    private var cancellable: Set<AnyCancellable> = []
+    var viewModel: ViewModel!
     
     init(viewModel: ViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
     }
     
-    required init?(coder: NSCoder) {
-        self.viewModel = ViewModel(gitHubClient: GitHubClient(accessToken: "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"))
-
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError("init(nibName:bundle:) has not been implemented. Use init(viewModel) instead.")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         bindViewModel()
-        viewModel.searchUsers(query: "octocat")
+        viewModel?.searchUsers(query: "octocat")
     }
-    
     
     func bindViewModel() {
+        guard let viewModel = viewModel else { return }
         viewModel.$users
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] users in
-
+                guard let self = self else { return }
                 print(users)
             }
-            .store(in: &cancellables)
+            .store(in: &cancellable)
     }
-
 }
