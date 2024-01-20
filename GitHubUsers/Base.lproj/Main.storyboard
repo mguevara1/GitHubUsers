@@ -81,6 +81,36 @@
             </objects>
             <point key="canvasLocation" x="1901.5267175572519" y="4.9295774647887329"/>
         </scene>
+        <!--User Repos View Controller-->
+        <scene sceneID="V5W-k0-PsF">
+            <objects>
+                <viewController storyboardIdentifier="UserReposViewController" id="WmO-yo-Q88" customClass="UserReposViewController" customModule="GitHubUsers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="53Z-ym-6zl">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Asv-8h-3gN">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qFX-8Z-wl3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Asv-8h-3gN" firstAttribute="top" secondItem="qFX-8Z-wl3" secondAttribute="top" id="0EJ-dB-Jgz"/>
+                            <constraint firstItem="Asv-8h-3gN" firstAttribute="leading" secondItem="qFX-8Z-wl3" secondAttribute="leading" id="1xA-MX-EV7"/>
+                            <constraint firstItem="Asv-8h-3gN" firstAttribute="trailing" secondItem="qFX-8Z-wl3" secondAttribute="trailing" id="TtA-3A-4wD"/>
+                            <constraint firstItem="Asv-8h-3gN" firstAttribute="bottom" secondItem="qFX-8Z-wl3" secondAttribute="bottom" id="pNI-Rk-jJP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Asv-8h-3gN" id="9PD-BM-Ear"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxS-dx-9s1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2716.7938931297708" y="4.9295774647887329"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="F1l-zt-gNm">
             <objects>

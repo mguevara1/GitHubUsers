@@ -25,6 +25,7 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = viewModel.username
         configureTableView()
         bindViewModel()
         viewModel.getUserDetails(username: viewModel.username)
@@ -43,7 +44,8 @@ class UserDetailsViewController: UIViewController {
                         UserDetailsItem(title: "Username", description: user.login),
                         UserDetailsItem(title: "Full name", description: user.name ?? ""),
                         UserDetailsItem(title: "Number of followers", description: String(user.followers ?? 0)),
-                        UserDetailsItem(title: "Following", description: String(user.following ?? 0))
+                        UserDetailsItem(title: "Following", description: String(user.following ?? 0)),
+                        UserDetailsItem(title: "Public repositories", description: String(user.publicRepos ?? 0), rightArrowHidden: false)
                     ]
                 tableView.reloadData()
             }
@@ -82,8 +84,20 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserDetailsTableViewCell", for: indexPath) as! UserDetailsTableViewCell
         if let item = viewModel.detailItems?[indexPath.row] {
             cell.titleLabel.text = "\(item.title): \(item.description)"
+            cell.arrowImageView.isHidden = item.rightArrowHidden
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let user = viewModel.selectedUser, indexPath.row == 4 {
+            if let userReposVC = storyboard?.instantiateViewController(withIdentifier: "UserReposViewController") as? UserReposViewController {
+                userReposVC.viewModel = UserReposViewModel(gitHubClient: viewModel.gitHubClient, reposUrl: user.reposURL)
+                navigationController?.pushViewController(userReposVC, animated: true)
+            } else {
+                print("Error: Unable to instantiate UserReposViewController from storyboard.")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

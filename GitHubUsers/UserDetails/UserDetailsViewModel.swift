@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class UserDetailsViewModel {
-    private let gitHubClient: GitHubClient
+    let gitHubClient: GitHubClient
     @Published var avatarUrl: URL
     @Published var selectedUser: User?
     var detailItems: [UserDetailsItem]?

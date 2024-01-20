@@ -8,4 +8,5 @@
 struct UserDetailsItem {
     var title: String
     var description: String
+    var rightArrowHidden: Bool = true
 }

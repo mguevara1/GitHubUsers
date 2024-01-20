@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c34-6z-Qgv">
-                        <rect key="frame" x="16" y="26" width="277" height="21"/>
+                        <rect key="frame" x="16" y="26" width="274" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J1q-IL-LG6">
-                        <rect key="frame" x="303" y="29" width="9" height="15"/>
+                        <rect key="frame" x="300" y="27.666666666666671" width="12" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="jI7-hU-3sl"/>
-                            <constraint firstAttribute="width" constant="9" id="l8a-gK-Svc"/>
+                            <constraint firstAttribute="height" constant="18" id="jI7-hU-3sl"/>
+                            <constraint firstAttribute="width" constant="12" id="l8a-gK-Svc"/>
                         </constraints>
                     </imageView>
                 </subviews>

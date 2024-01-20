@@ -30,6 +30,12 @@ class GitHubClient {
         let user = try JSONDecoder().decode(User.self, from: data)
         return user
     }
+    
+    func getRepositories(url: URL) async throws -> [Repository] {
+        let data = try await makeRequestFullUrl(url: url)
+        let repositories = try JSONDecoder().decode([Repository].self, from: data)
+        return repositories
+    }
 
     private func makeRequest(endpoint: String, params: [String: String]? = nil) async throws -> Data {
         var components = URLComponents(string: baseURL + endpoint)
@@ -39,6 +45,16 @@ class GitHubClient {
             throw NSError(domain: "Invalid URL", code: 0, userInfo: nil)
         }
 
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+        request.addValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return data
+    }
+    
+    private func makeRequestFullUrl(url: URL) async throws -> Data {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
