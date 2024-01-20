@@ -131,21 +131,13 @@
 			children = (
 				D10256B72B5887E400300EED /* AppDelegate.swift */,
 				D10256B92B5887E400300EED /* SceneDelegate.swift */,
-				D1E017BA2B5B7CA000380DCB /* UIImageView+Extensions.swift */,
-				D10256BB2B5887E400300EED /* UserSearchViewController.swift */,
-				D1E017AC2B5B2FB400380DCB /* UserSearchTableViewCell.swift */,
-				D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */,
 				D1E017A62B5AEEA200380DCB /* config.json */,
 				D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */,
-				D10256EE2B58AE2B00300EED /* UserSearchViewModel.swift */,
-				D1E017B22B5B61EA00380DCB /* UserDetailsViewController.swift */,
-				D1E017B42B5B620600380DCB /* UserDetailsViewModel.swift */,
-				D1E017B62B5B74BE00380DCB /* UserDetailsTableViewCell.swift */,
-				D1E017B72B5B74BE00380DCB /* UserDetailsTableViewCell.xib */,
-				D10256EA2B58892D00300EED /* GitHubClient.swift */,
-				D10256EC2B58931900300EED /* User.swift */,
-				D1E017BC2B5C0D7C00380DCB /* UserSearchResponse.swift */,
-				D1E017BE2B5C1ADC00380DCB /* UserDetailsItem.swift */,
+				D1E017C02B5C20AC00380DCB /* Extensions */,
+				D1E017C12B5C20BD00380DCB /* UserSearch */,
+				D1E017C22B5C210E00380DCB /* UserDetails */,
+				D1E017C32B5C213000380DCB /* Networking */,
+				D1E017C42B5C215300380DCB /* Models */,
 				D10256BD2B5887E400300EED /* Main.storyboard */,
 				D10256C32B5887E400300EED /* Assets.xcassets */,
 				D10256C52B5887E400300EED /* LaunchScreen.storyboard */,
@@ -170,6 +162,54 @@
 				D10256DD2B5887E400300EED /* GitHubUsersUITestsLaunchTests.swift */,
 			);
 			path = GitHubUsersUITests;
+			sourceTree = "<group>";
+		};
+		D1E017C02B5C20AC00380DCB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1E017BA2B5B7CA000380DCB /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D1E017C12B5C20BD00380DCB /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D1E017AC2B5B2FB400380DCB /* UserSearchTableViewCell.swift */,
+				D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */,
+				D10256BB2B5887E400300EED /* UserSearchViewController.swift */,
+				D10256EE2B58AE2B00300EED /* UserSearchViewModel.swift */,
+			);
+			path = UserSearch;
+			sourceTree = "<group>";
+		};
+		D1E017C22B5C210E00380DCB /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D1E017B22B5B61EA00380DCB /* UserDetailsViewController.swift */,
+				D1E017B42B5B620600380DCB /* UserDetailsViewModel.swift */,
+				D1E017B62B5B74BE00380DCB /* UserDetailsTableViewCell.swift */,
+				D1E017B72B5B74BE00380DCB /* UserDetailsTableViewCell.xib */,
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		D1E017C32B5C213000380DCB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D10256EA2B58892D00300EED /* GitHubClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D1E017C42B5C215300380DCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D10256EC2B58931900300EED /* User.swift */,
+				D1E017BC2B5C0D7C00380DCB /* UserSearchResponse.swift */,
+				D1E017BE2B5C1ADC00380DCB /* UserDetailsItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
