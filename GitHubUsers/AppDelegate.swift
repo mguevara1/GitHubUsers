@@ -14,18 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let config = ConfigurationManager.loadConfig() else {
-            print("Failed to load configuration.")
-            return false
-        }
-        
-        let gitHubClient = GitHubClient(accessToken: config.githubToken)
-        let viewModel = ViewModel(gitHubClient: gitHubClient)
-        let viewController = ViewController(viewModel: viewModel)
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
         
         return true
     }

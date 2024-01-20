@@ -22,6 +22,8 @@
 		D10256EF2B58AE2B00300EED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10256EE2B58AE2B00300EED /* ViewModel.swift */; };
 		D1E017A82B5AEED300380DCB /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */; };
 		D1E017A92B5B0B0C00380DCB /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = D1E017A62B5AEEA200380DCB /* config.json */; };
+		D1E017AE2B5B2FB400380DCB /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017AC2B5B2FB400380DCB /* UserSearchTableViewCell.swift */; };
+		D1E017AF2B5B2FB400380DCB /* UserSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		D10256EE2B58AE2B00300EED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D1E017A62B5AEEA200380DCB /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		D1E017AC2B5B2FB400380DCB /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
+		D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSearchTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				D10256B72B5887E400300EED /* AppDelegate.swift */,
 				D10256B92B5887E400300EED /* SceneDelegate.swift */,
 				D10256BB2B5887E400300EED /* ViewController.swift */,
+				D1E017AC2B5B2FB400380DCB /* UserSearchTableViewCell.swift */,
+				D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */,
 				D1E017A62B5AEEA200380DCB /* config.json */,
 				D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */,
 				D10256EE2B58AE2B00300EED /* ViewModel.swift */,
@@ -253,6 +259,7 @@
 				D1E017A92B5B0B0C00380DCB /* config.json in Resources */,
 				D10256C42B5887E400300EED /* Assets.xcassets in Resources */,
 				D10256BF2B5887E400300EED /* Main.storyboard in Resources */,
+				D1E017AF2B5B2FB400380DCB /* UserSearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E017AE2B5B2FB400380DCB /* UserSearchTableViewCell.swift in Sources */,
 				D1E017A82B5AEED300380DCB /* ConfigurationManager.swift in Sources */,
 				D10256EB2B58892D00300EED /* GitHubClient.swift in Sources */,
 				D10256BC2B5887E400300EED /* ViewController.swift in Sources */,
