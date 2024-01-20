@@ -48,7 +48,3 @@ class GitHubClient {
         return data
     }
 }
-
-struct UserSearchResponse: Decodable {
-    let items: [User]
-}

@@ -23,7 +23,7 @@ struct User: Decodable {
     let company: String?
     let email: String?
     let publicRepos, publicGists, followers, following: Int?
-    let createdAt, updatedAt: Date?
+    let createdAt, updatedAt: String?
     
     enum CodingKeys: String, CodingKey {
         case login, id

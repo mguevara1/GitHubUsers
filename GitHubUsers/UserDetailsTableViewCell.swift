@@ -1,5 +1,5 @@
 //
-//  UserSearchTableViewCell.swift
+//  UserDetailsTableViewCell.swift
 //  GitHubUsers
 //
 //  Created by Marco Guevara on 19/01/24.
@@ -7,15 +7,13 @@
 
 import UIKit
 
-class UserSearchTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var avatarImageView: UIImageView! {
+class UserDetailsTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
+            titleLabel.numberOfLines = 0
         }
     }
-    
-    @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var arrowImageView: UIImageView! {
         didSet {
@@ -24,13 +22,11 @@ class UserSearchTableViewCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-
         selectionStyle = .none
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
