@@ -22,12 +22,25 @@ class UserReposViewController: UIViewController {
         }
     }
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Repositories"
+        setupUI()
         bindViewModel()
         viewModel.getUserRepos(url: viewModel.reposUrl)
+    }
+    
+    func setupUI() {
+        title = "Repositories"
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
     }
     
     func bindViewModel() {
@@ -36,11 +49,19 @@ class UserReposViewController: UIViewController {
         viewModel.$repositories
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] repos in
+            .sink { [weak self] _ in
                 guard let self = self else { return }
-                guard let repos = repos else { return }
-                print(repos)
+                
                 tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isLoading
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                guard let self = self else { return }
+                isLoading ? showLoading() : stopLoading()
             }
             .store(in: &cancellables)
     }
@@ -51,6 +72,14 @@ class UserReposViewController: UIViewController {
         webView.load(URLRequest(url: url))
         webViewController.view.addSubview(webView)
         navigationController?.pushViewController(webViewController, animated: true)
+    }
+    
+    private func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func stopLoading() {
+        activityIndicator.stopAnimating()
     }
 }
 

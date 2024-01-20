@@ -12,6 +12,7 @@ class UserDetailsViewModel {
     let gitHubClient: GitHubClient
     @Published var avatarUrl: URL
     @Published var selectedUser: User?
+    @Published var isLoading: Bool = false
     var detailItems: [UserDetailsItem]?
     let username: String
 
@@ -22,12 +23,14 @@ class UserDetailsViewModel {
     }
     
     func getUserDetails(username: String) {
+        isLoading = true
         Task {
             do {
                 try await getUserDetails(username: username)
             } catch {
                 print("Error searching users: \(error)")
             }
+            isLoading = false
         }
     }
     

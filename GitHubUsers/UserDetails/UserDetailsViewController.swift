@@ -18,6 +18,13 @@ class UserDetailsViewController: UIViewController {
         }
     }
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     var viewModel: UserDetailsViewModel!
     private var cancellables: Set<AnyCancellable> = []
     private var avatarImageView: UIImageView!
@@ -25,10 +32,15 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = viewModel.username
-        configureTableView()
+        setupUI()
         bindViewModel()
         viewModel.getUserDetails(username: viewModel.username)
+    }
+    
+    private func setupUI() {
+        title = viewModel.username
+        addLoader()
+        configureTableView()
     }
     
     func bindViewModel() {
@@ -71,6 +83,19 @@ class UserDetailsViewController: UIViewController {
         tableView.tableHeaderView = headerView
         
         view.addSubview(tableView)
+    }
+    
+    private func addLoader() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
+    
+    private func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func stopLoading() {
+        activityIndicator.stopAnimating()
     }
 }
 

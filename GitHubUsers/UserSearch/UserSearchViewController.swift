@@ -25,11 +25,27 @@ class UserSearchViewController: UIViewController {
         }
     }
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    private let emptyStateView: EmptyStateView = {
+            let view = EmptyStateView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }()
+    
     public var cancellable: Set<AnyCancellable> = []
     var viewModel: UserSearchViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addLoader()
+        addEmptyStateView()
         
         if let config = ConfigurationManager.loadConfig() {
             let gitHubClient = GitHubClient(accessToken: config.githubToken)
@@ -57,10 +73,47 @@ class UserSearchViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] users in
                 guard let self = self else { return }
-                
+                guard let users = users else { return }
                 tableView.reloadData()
+                showEmptyState(users.isEmpty)
             }
             .store(in: &cancellable)
+        
+        viewModel.$isLoading
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                guard let self = self else { return }
+                isLoading ? showLoading() : stopLoading()
+            }
+            .store(in: &cancellable)
+    }
+    
+    private func addLoader() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
+    
+    private func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func stopLoading() {
+        activityIndicator.stopAnimating()
+    }
+    
+    private func addEmptyStateView() {
+        view.addSubview(emptyStateView)
+        
+        NSLayoutConstraint.activate([
+            emptyStateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+        
+    private func showEmptyState(_ show: Bool) {
+        emptyStateView.isHidden = !show
+        tableView.isHidden = show
     }
 }
 

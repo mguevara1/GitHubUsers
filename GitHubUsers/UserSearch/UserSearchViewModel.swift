@@ -11,6 +11,7 @@ class UserSearchViewModel {
     let gitHubClient: GitHubClient
     @Published var users: [User]?
     @Published var searchText: String
+    @Published var isLoading: Bool = false
 
     init(gitHubClient: GitHubClient) {
         self.gitHubClient = gitHubClient
@@ -23,12 +24,15 @@ class UserSearchViewModel {
             return
         }
         
+        isLoading = true
+        
         Task {
             do {
                 try await fetchUsers(query: query)
             } catch {
                 print("Error searching users: \(error)")
             }
+            isLoading = false
         }
     }
 

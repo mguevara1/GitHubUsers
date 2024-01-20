@@ -36,6 +36,7 @@
 		D1E017CB2B5C329C00380DCB /* UserReposViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017CA2B5C329C00380DCB /* UserReposViewModel.swift */; };
 		D1E017CE2B5C4AE900380DCB /* UserReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017CC2B5C4AE900380DCB /* UserReposTableViewCell.swift */; };
 		D1E017CF2B5C4AE900380DCB /* UserReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E017CD2B5C4AE900380DCB /* UserReposTableViewCell.xib */; };
+		D1E017D12B5C619B00380DCB /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017D02B5C619B00380DCB /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		D1E017CA2B5C329C00380DCB /* UserReposViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposViewModel.swift; sourceTree = "<group>"; };
 		D1E017CC2B5C4AE900380DCB /* UserReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposTableViewCell.swift; sourceTree = "<group>"; };
 		D1E017CD2B5C4AE900380DCB /* UserReposTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserReposTableViewCell.xib; sourceTree = "<group>"; };
+		D1E017D02B5C619B00380DCB /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				D1E017AD2B5B2FB400380DCB /* UserSearchTableViewCell.xib */,
 				D10256BB2B5887E400300EED /* UserSearchViewController.swift */,
 				D10256EE2B58AE2B00300EED /* UserSearchViewModel.swift */,
+				D1E017D02B5C619B00380DCB /* EmptyStateView.swift */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			files = (
 				D1E017BB2B5B7CA000380DCB /* UIImageView+Extensions.swift in Sources */,
 				D1E017B32B5B61EA00380DCB /* UserDetailsViewController.swift in Sources */,
+				D1E017D12B5C619B00380DCB /* EmptyStateView.swift in Sources */,
 				D1E017C92B5C326700380DCB /* UserReposViewController.swift in Sources */,
 				D1E017B82B5B74BE00380DCB /* UserDetailsTableViewCell.swift in Sources */,
 				D1E017AE2B5B2FB400380DCB /* UserSearchTableViewCell.swift in Sources */,

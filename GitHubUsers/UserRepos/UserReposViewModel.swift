@@ -12,6 +12,7 @@ class UserReposViewModel {
     private let gitHubClient: GitHubClient
     let reposUrl: URL
     @Published var repositories: [Repository]?
+    @Published var isLoading: Bool = false
 
     init(gitHubClient: GitHubClient, reposUrl: URL) {
         self.gitHubClient = gitHubClient
@@ -19,12 +20,14 @@ class UserReposViewModel {
     }
     
     func getUserRepos(url: URL) {
+        isLoading = true
         Task {
             do {
                 try await getRepositories(url: url)
             } catch {
                 print("Error searching users: \(error)")
             }
+            isLoading = false
         }
     }
     
