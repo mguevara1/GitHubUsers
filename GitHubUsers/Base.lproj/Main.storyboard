@@ -42,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="GitHub Users" id="0SE-2g-JUn"/>
                     <connections>
+                        <outlet property="searchBar" destination="T7l-sK-gvC" id="egJ-Xx-OTb"/>
                         <outlet property="tableView" destination="hvh-0x-kUi" id="CEJ-wB-DJn"/>
                     </connections>
                 </viewController>

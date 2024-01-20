@@ -10,12 +10,19 @@ import Foundation
 class UserSearchViewModel {
     let gitHubClient: GitHubClient
     @Published var users: [User]?
+    @Published var searchText: String
 
     init(gitHubClient: GitHubClient) {
         self.gitHubClient = gitHubClient
+        searchText = ""
     }
 
     func searchUsers(query: String) {
+        if query.isEmpty {
+            self.users = []
+            return
+        }
+        
         Task {
             do {
                 try await fetchUsers(query: query)

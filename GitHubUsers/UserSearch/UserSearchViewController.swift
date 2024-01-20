@@ -19,6 +19,12 @@ class UserSearchViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
     public var cancellable: Set<AnyCancellable> = []
     var viewModel: UserSearchViewModel!
     
@@ -29,14 +35,23 @@ class UserSearchViewController: UIViewController {
             let gitHubClient = GitHubClient(accessToken: config.githubToken)
             viewModel = UserSearchViewModel(gitHubClient: gitHubClient)
             bindViewModel()
-            viewModel.searchUsers(query: "octocat")
         } else {
             print("Failed to load configuration.")
         }
+        
+        searchBar.becomeFirstResponder()
     }
     
     func bindViewModel() {
         guard let viewModel = viewModel else { return }
+        
+        viewModel.$searchText
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink { searchText in
+                viewModel.searchUsers(query: searchText)
+            }
+            .store(in: &cancellable)
+        
         viewModel.$users
             .dropFirst()
             .receive(on: DispatchQueue.main)
@@ -79,5 +94,12 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
+    }
+}
+
+extension UserSearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchText = searchText
     }
 }
