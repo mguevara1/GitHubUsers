@@ -8,13 +8,13 @@
 import Foundation
 
 class UserSearchViewModel {
-    let gitHubClient: GitHubClient
+    let gitHubClient: GitHubClientProtocol
     @Published var users: [User]?
     @Published var searchText: String
     @Published var isLoading: Bool = false
     @Published var error: GitHubUsersError?
 
-    init(gitHubClient: GitHubClient) {
+    init(gitHubClient: GitHubClientProtocol) {
         self.gitHubClient = gitHubClient
         searchText = ""
     }

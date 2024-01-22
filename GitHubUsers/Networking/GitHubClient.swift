@@ -8,7 +8,13 @@
 import Foundation
 import Combine
 
-class GitHubClient {
+protocol GitHubClientProtocol {
+    func searchUsers(query: String) async throws -> [User]
+    func getUserDetails(username: String) async throws -> User
+    func getRepositories(url: URL) async throws -> [Repository]
+}
+
+class GitHubClient: GitHubClientProtocol {
     let baseURL = "https://api.github.com"
     let accessToken: String
 

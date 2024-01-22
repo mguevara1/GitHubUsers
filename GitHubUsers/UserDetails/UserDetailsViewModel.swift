@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class UserDetailsViewModel {
-    let gitHubClient: GitHubClient
+    let gitHubClient: GitHubClientProtocol
     @Published var avatarUrl: URL
     @Published var selectedUser: User?
     @Published var isLoading: Bool = false
@@ -17,7 +17,7 @@ class UserDetailsViewModel {
     var detailItems: [UserDetailsItem]?
     let username: String
 
-    init(gitHubClient: GitHubClient, username: String, avatarUrl: URL) {
+    init(gitHubClient: GitHubClientProtocol, username: String, avatarUrl: URL) {
         self.gitHubClient = gitHubClient
         self.username = username
         self.avatarUrl = avatarUrl

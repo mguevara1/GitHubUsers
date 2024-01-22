@@ -9,13 +9,13 @@ import Foundation
 import Combine
 
 class UserReposViewModel {
-    private let gitHubClient: GitHubClient
+    private let gitHubClient: GitHubClientProtocol
     let reposUrl: URL
     @Published var repositories: [Repository]?
     @Published var isLoading: Bool = false
     @Published var error: GitHubUsersError?
 
-    init(gitHubClient: GitHubClient, reposUrl: URL) {
+    init(gitHubClient: GitHubClientProtocol, reposUrl: URL) {
         self.gitHubClient = gitHubClient
         self.reposUrl = reposUrl
     }
