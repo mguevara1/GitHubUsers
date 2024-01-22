@@ -16,26 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="354" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xac-j3-Hnh">
-                        <rect key="frame" x="16" y="16" width="47" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xac-j3-Hnh">
+                        <rect key="frame" x="16" y="16" width="322" height="21.666666666666671"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-OC-lkJ">
-                        <rect key="frame" x="33" y="49" width="36" height="17"/>
+                        <rect key="frame" x="33" y="49.666666666666664" width="36" height="16.999999999999993"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39g-wu-QgN">
-                        <rect key="frame" x="32" y="73" width="36" height="17"/>
+                        <rect key="frame" x="32" y="73.666666666666671" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-EF-Tsh">
-                        <rect key="frame" x="33" y="99" width="305" height="17"/>
+                        <rect key="frame" x="33" y="99.666666666666671" width="305" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -48,13 +48,13 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="40g-bI-w3n">
-                        <rect key="frame" x="5" y="47.333333333333329" width="18" height="21"/>
+                        <rect key="frame" x="5" y="48" width="18" height="21"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WgG-NE-jiA">
-                        <rect key="frame" x="3" y="70" width="22" height="21"/>
+                        <rect key="frame" x="3" y="70.666666666666671" width="22" height="21"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.clipboard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-3W-Fmx">
-                        <rect key="frame" x="5" y="94.333333333333343" width="18" height="23.333333333333329"/>
+                        <rect key="frame" x="5" y="95" width="18" height="23.333333333333329"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -68,6 +68,7 @@
                     <constraint firstItem="oP4-3W-Fmx" firstAttribute="top" secondItem="WgG-NE-jiA" secondAttribute="bottom" constant="5" id="AtZ-Gq-c8C"/>
                     <constraint firstItem="weh-tl-bO0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BQi-hN-JCb"/>
                     <constraint firstItem="xac-j3-Hnh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="OMr-BK-wmq"/>
+                    <constraint firstAttribute="trailing" secondItem="xac-j3-Hnh" secondAttribute="trailing" constant="16" id="Uxl-AW-prb"/>
                     <constraint firstItem="yaf-OC-lkJ" firstAttribute="top" secondItem="xac-j3-Hnh" secondAttribute="bottom" constant="12" id="VNn-AK-mFD"/>
                     <constraint firstAttribute="trailing" secondItem="Qed-EF-Tsh" secondAttribute="trailing" constant="16" id="XaI-hc-vlO"/>
                     <constraint firstItem="WgG-NE-jiA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="Z9P-J3-Ebr"/>

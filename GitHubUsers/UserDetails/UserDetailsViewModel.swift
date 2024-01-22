@@ -13,6 +13,7 @@ class UserDetailsViewModel {
     @Published var avatarUrl: URL
     @Published var selectedUser: User?
     @Published var isLoading: Bool = false
+    @Published var error: GitHubUsersError?
     var detailItems: [UserDetailsItem]?
     let username: String
 
@@ -28,7 +29,8 @@ class UserDetailsViewModel {
             do {
                 try await getUserDetails(username: username)
             } catch {
-                print("Error searching users: \(error)")
+                debugPrint("\(CommonStrings.detailsError): \(error)")
+                self.error = GitHubUsersError.ServerFailure(CommonStrings.detailsError)
             }
             isLoading = false
         }

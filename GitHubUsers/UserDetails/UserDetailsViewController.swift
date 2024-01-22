@@ -53,11 +53,11 @@ class UserDetailsViewController: UIViewController {
                 guard let self = self else { return }
                 guard let user = user else { return }
                 viewModel.detailItems = [
-                        UserDetailsItem(title: "Username", description: user.login),
-                        UserDetailsItem(title: "Full name", description: user.name ?? ""),
-                        UserDetailsItem(title: "Number of followers", description: String(user.followers ?? 0)),
-                        UserDetailsItem(title: "Following", description: String(user.following ?? 0)),
-                        UserDetailsItem(title: "Public repositories", description: String(user.publicRepos ?? 0), rightArrowHidden: false)
+                    UserDetailsItem(title: CommonStrings.UserDetails.userNameTitle, description: user.login),
+                    UserDetailsItem(title: CommonStrings.UserDetails.fullNameTitle, description: user.name ?? ""),
+                    UserDetailsItem(title: CommonStrings.UserDetails.followersTitle, description: String(user.followers ?? 0)),
+                    UserDetailsItem(title: CommonStrings.UserDetails.followingTitle, description: String(user.following ?? 0)),
+                    UserDetailsItem(title: CommonStrings.UserDetails.reposTitle, description: String(user.publicRepos ?? 0), rightArrowHidden: false)
                     ]
                 tableView.reloadData()
             }
@@ -69,6 +69,15 @@ class UserDetailsViewController: UIViewController {
                 avatarImageView.downloadImage(from: url)
             }
             .store(in: &cancellables)
+        
+        viewModel.$error
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                if let err = error {
+                    self?.errorHandler(error: err)
+                }
+            }.store(in: &cancellables)
     }
     
     private func configureTableView() {
@@ -97,6 +106,15 @@ class UserDetailsViewController: UIViewController {
     private func stopLoading() {
         activityIndicator.stopAnimating()
     }
+    
+    private func errorHandler(error: GitHubUsersError) {
+        switch error {
+        case .ServerFailure(let message):
+            showAlert(title: CommonStrings.errorTitle, message: message)
+        case .UnhandledFailure:
+            showAlert(title: CommonStrings.errorTitle, message: CommonStrings.unhandledError)
+        }
+    }
 }
 
 
@@ -120,7 +138,8 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                 userReposVC.viewModel = UserReposViewModel(gitHubClient: viewModel.gitHubClient, reposUrl: user.reposURL)
                 navigationController?.pushViewController(userReposVC, animated: true)
             } else {
-                print("Error: Unable to instantiate UserReposViewController from storyboard.")
+                debugPrint("Error: Unable to instantiate UserReposViewController from storyboard.")
+                showAlert(title: CommonStrings.errorTitle, message: CommonStrings.unhandledError)
             }
         }
     }

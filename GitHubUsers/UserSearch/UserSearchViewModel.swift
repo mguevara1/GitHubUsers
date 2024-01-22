@@ -12,6 +12,7 @@ class UserSearchViewModel {
     @Published var users: [User]?
     @Published var searchText: String
     @Published var isLoading: Bool = false
+    @Published var error: GitHubUsersError?
 
     init(gitHubClient: GitHubClient) {
         self.gitHubClient = gitHubClient
@@ -30,7 +31,8 @@ class UserSearchViewModel {
             do {
                 try await fetchUsers(query: query)
             } catch {
-                print("Error searching users: \(error)")
+                debugPrint("\(CommonStrings.searchError): \(error)")
+                self.error = GitHubUsersError.ServerFailure(CommonStrings.searchError)
             }
             isLoading = false
         }

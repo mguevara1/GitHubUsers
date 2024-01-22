@@ -38,7 +38,7 @@ class UserReposViewController: UIViewController {
     }
     
     func setupUI() {
-        title = "Repositories"
+        title = CommonStrings.repositoriesTitle
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
     }
@@ -64,6 +64,15 @@ class UserReposViewController: UIViewController {
                 isLoading ? showLoading() : stopLoading()
             }
             .store(in: &cancellables)
+        
+        viewModel.$error
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                if let err = error {
+                    self?.errorHandler(error: err)
+                }
+            }.store(in: &cancellables)
     }
     
     func showWebView(url: URL) {
@@ -80,6 +89,15 @@ class UserReposViewController: UIViewController {
     
     private func stopLoading() {
         activityIndicator.stopAnimating()
+    }
+    
+    private func errorHandler(error: GitHubUsersError) {
+        switch error {
+        case .ServerFailure(let message):
+            showAlert(title: CommonStrings.errorTitle, message: message)
+        case .UnhandledFailure:
+            showAlert(title: CommonStrings.errorTitle, message: CommonStrings.unhandledError)
+        }
     }
 }
 

@@ -52,7 +52,7 @@ class UserSearchViewController: UIViewController {
             viewModel = UserSearchViewModel(gitHubClient: gitHubClient)
             bindViewModel()
         } else {
-            print("Failed to load configuration.")
+            showAlert(title: CommonStrings.errorTitle, message: CommonStrings.configurationError)
         }
         
         searchBar.becomeFirstResponder()
@@ -87,6 +87,15 @@ class UserSearchViewController: UIViewController {
                 isLoading ? showLoading() : stopLoading()
             }
             .store(in: &cancellable)
+        
+        viewModel.$error
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                if let err = error {
+                    self?.errorHandler(error: err)
+                }
+            }.store(in: &cancellable)
     }
     
     private func addLoader() {
@@ -115,6 +124,15 @@ class UserSearchViewController: UIViewController {
         emptyStateView.isHidden = !show
         tableView.isHidden = show
     }
+    
+    private func errorHandler(error: GitHubUsersError) {
+        switch error {
+        case .ServerFailure(let message):
+            showAlert(title: CommonStrings.errorTitle, message: message)
+        case .UnhandledFailure:
+            showAlert(title: CommonStrings.errorTitle, message: CommonStrings.unhandledError)
+        }
+    }
 }
 
 extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -140,7 +158,8 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
                 userDetailsVC.viewModel = UserDetailsViewModel(gitHubClient: viewModel.gitHubClient, username: user.login, avatarUrl: user.avatarURL)
                 navigationController?.pushViewController(userDetailsVC, animated: true)
             } else {
-                print("Error: Unable to instantiate UserDetailsViewController from storyboard.")
+                debugPrint("Error: Unable to instantiate UserDetailsViewController from storyboard.")
+                showAlert(title: CommonStrings.errorTitle, message: CommonStrings.unhandledError)
             }
         }
     }

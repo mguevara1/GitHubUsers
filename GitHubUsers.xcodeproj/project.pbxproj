@@ -37,6 +37,9 @@
 		D1E017CE2B5C4AE900380DCB /* UserReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017CC2B5C4AE900380DCB /* UserReposTableViewCell.swift */; };
 		D1E017CF2B5C4AE900380DCB /* UserReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E017CD2B5C4AE900380DCB /* UserReposTableViewCell.xib */; };
 		D1E017D12B5C619B00380DCB /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017D02B5C619B00380DCB /* EmptyStateView.swift */; };
+		D1E017D32B5DE61600380DCB /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017D22B5DE61600380DCB /* UIViewController+Extensions.swift */; };
+		D1E017D52B5DF3B800380DCB /* GitHubUsersError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017D42B5DF3B800380DCB /* GitHubUsersError.swift */; };
+		D1E017D72B5DF75200380DCB /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E017D62B5DF75200380DCB /* CommonStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		D1E017CC2B5C4AE900380DCB /* UserReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposTableViewCell.swift; sourceTree = "<group>"; };
 		D1E017CD2B5C4AE900380DCB /* UserReposTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserReposTableViewCell.xib; sourceTree = "<group>"; };
 		D1E017D02B5C619B00380DCB /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		D1E017D22B5DE61600380DCB /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		D1E017D42B5DF3B800380DCB /* GitHubUsersError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUsersError.swift; sourceTree = "<group>"; };
+		D1E017D62B5DF75200380DCB /* CommonStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +150,7 @@
 				D10256B72B5887E400300EED /* AppDelegate.swift */,
 				D10256B92B5887E400300EED /* SceneDelegate.swift */,
 				D1E017A62B5AEEA200380DCB /* config.json */,
-				D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */,
+				D1E017D82B5E06CC00380DCB /* Common */,
 				D1E017C02B5C20AC00380DCB /* Extensions */,
 				D1E017C12B5C20BD00380DCB /* UserSearch */,
 				D1E017C22B5C210E00380DCB /* UserDetails */,
@@ -181,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E017BA2B5B7CA000380DCB /* UIImageView+Extensions.swift */,
+				D1E017D22B5DE61600380DCB /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +243,16 @@
 				D1E017CD2B5C4AE900380DCB /* UserReposTableViewCell.xib */,
 			);
 			path = UserRepos;
+			sourceTree = "<group>";
+		};
+		D1E017D82B5E06CC00380DCB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D1E017A72B5AEED300380DCB /* ConfigurationManager.swift */,
+				D1E017D42B5DF3B800380DCB /* GitHubUsersError.swift */,
+				D1E017D62B5DF75200380DCB /* CommonStrings.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,7 +399,9 @@
 				D1E017A82B5AEED300380DCB /* ConfigurationManager.swift in Sources */,
 				D10256EB2B58892D00300EED /* GitHubClient.swift in Sources */,
 				D1E017BF2B5C1ADC00380DCB /* UserDetailsItem.swift in Sources */,
+				D1E017D72B5DF75200380DCB /* CommonStrings.swift in Sources */,
 				D10256BC2B5887E400300EED /* UserSearchViewController.swift in Sources */,
+				D1E017D32B5DE61600380DCB /* UIViewController+Extensions.swift in Sources */,
 				D10256ED2B58931900300EED /* User.swift in Sources */,
 				D10256C22B5887E400300EED /* GitHubUsers.xcdatamodeld in Sources */,
 				D10256B82B5887E400300EED /* AppDelegate.swift in Sources */,
@@ -390,6 +409,7 @@
 				D1E017B52B5B620600380DCB /* UserDetailsViewModel.swift in Sources */,
 				D1E017BD2B5C0D7C00380DCB /* UserSearchResponse.swift in Sources */,
 				D10256BA2B5887E400300EED /* SceneDelegate.swift in Sources */,
+				D1E017D52B5DF3B800380DCB /* GitHubUsersError.swift in Sources */,
 				D10256EF2B58AE2B00300EED /* UserSearchViewModel.swift in Sources */,
 				D1E017CE2B5C4AE900380DCB /* UserReposTableViewCell.swift in Sources */,
 				D1E017CB2B5C329C00380DCB /* UserReposViewModel.swift in Sources */,

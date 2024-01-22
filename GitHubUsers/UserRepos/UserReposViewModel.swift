@@ -13,6 +13,7 @@ class UserReposViewModel {
     let reposUrl: URL
     @Published var repositories: [Repository]?
     @Published var isLoading: Bool = false
+    @Published var error: GitHubUsersError?
 
     init(gitHubClient: GitHubClient, reposUrl: URL) {
         self.gitHubClient = gitHubClient
@@ -25,7 +26,8 @@ class UserReposViewModel {
             do {
                 try await getRepositories(url: url)
             } catch {
-                print("Error searching users: \(error)")
+                debugPrint("\(CommonStrings.repositoriesError): \(error)")
+                self.error = GitHubUsersError.ServerFailure(CommonStrings.repositoriesError)
             }
             isLoading = false
         }
